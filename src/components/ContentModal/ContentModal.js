@@ -7,7 +7,8 @@ import Button from '@material-ui/core/Button';
 import { img_500, unavailable } from '../../config/config'
 import './ContentModal.css'
 import YouTubeIcon from '@material-ui/icons/YouTube';
-import Carousel from './Carousel/Carousel';
+import Gallery from '../Carousel/Carousel';
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -23,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
+  button: {
+    '&:hover': {
+      backgroundColor: 'red'
+    }
+  }
 }));
 
 export default function ContentModal(props) {
@@ -30,7 +36,7 @@ export default function ContentModal(props) {
   const [open, setOpen] = React.useState(false);
   const [content, setContent] = React.useState({});
   const [video, setVideo] = React.useState();
-
+  
   const handleOpen = () => {
     setOpen(true);
   };
@@ -64,18 +70,22 @@ export default function ContentModal(props) {
         {
             props.children
         }
+        <div class='movie_over'>
+          <h2>Overview</h2>
+          <p>{props.overview}</p>
+        </div>
       </div>
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
       >
         <Fade in={open}>
           {content && (
@@ -116,10 +126,11 @@ export default function ContentModal(props) {
                       <span className="ContentModal__description">
                         {content.overview}
                       </span>
-
-                      <Carousel media_type={props.media_type} id={props.id}/>
-
+                      <div>
+                        <Gallery media_type={props.media_type} id={props.id}/> 
+                      </div>
                       <Button
+                        className= {classes.button}
                         variant="contained"
                         startIcon={<YouTubeIcon />}
                         color="secondary"

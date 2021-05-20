@@ -1,12 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 .ContentModal {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-    overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.media {
+  margin: 5px; 
+  min-height: 370px;
+  position: relative;
 }
 
 .ContentModal__landscape {
@@ -83,4 +89,22 @@
   .ContentModal__description {
     font-size: 22px;
   }
+}
+
+.movie_over {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: all 0.2s ease-in-out;
+}
+
+.media:hover .movie_over {
+  display: block;
+  transform: translateY(0%);
 }

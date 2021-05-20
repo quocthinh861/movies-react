@@ -28,7 +28,8 @@ const Trending = () => {
             {
                 content && content.map((c) => {
                     return (
-                        <SingleContent key={c.id} id={c.id} path={c.poster_path} title={c.title} date={c.release_date} vote_average={c.vote_average} media_type={c.media_type} />
+                        
+                        <SingleContent key={c.id} overview={c.overview} id={c.id} path={c.poster_path} title={c.title} date={c.release_date} vote_average={c.vote_average} media_type={c.media_type} />
                     )
                 })
             }
