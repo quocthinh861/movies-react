@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react'
+import React, { useEffect } from 'react'
 import TextField from '@material-ui/core/TextField';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
@@ -32,7 +32,7 @@ const Search = () => {
 
     useEffect(() => {
         fetchSearch();
-    }, [searchText])
+    }, [searchText]);
     
     return (
         <div>
