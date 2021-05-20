@@ -1,12 +1,4 @@
 .trending {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-@media (max-width: 500px)
-{
-    .media{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
 }
